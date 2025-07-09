@@ -15,7 +15,7 @@ def buy():
     """
     buyId = 0
     buyQuantity = 0
-    vat = 13 #in %
+    vatpersent = 13 #in %
     buyDate = str(datetime.datetime.now().year) + "-" + str(datetime.datetime.now().month) + "-" + str(datetime.datetime.now().day)
     buyTime = str(datetime.datetime.now().hour) + "hr:"+ str(datetime.datetime.now().minute) + "min:"+ str(datetime.datetime.now().second)+ "s"
     if not buyList:
@@ -45,7 +45,7 @@ def buy():
         else:
             print("-"*150)
             total_without_vat = productList[buyId - 1].costPrice * buyQuantity
-            total = total_without_vat * (vat / 100)
+            total = total_without_vat * (vatpersent / 100)
             #incresed quantity
             productList[buyId - 1].quantity += buyQuantity
             print("Your total is", total, " including VAT.")
